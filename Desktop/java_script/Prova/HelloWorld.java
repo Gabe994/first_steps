@@ -30,13 +30,16 @@ class Anagrafica{
     }
 }
 
+class PostgreSQL_connection{
+    String url;
+    String user;
+    String password;
 
-
-
-public class HelloWorld {
-    private final String url = "jdbc:postgresql://localhost/db1";
-    private final String user = "postgres";
-    private final String password = "Giomartagio1";
+    public PostgreSQL_connection(){
+        url = "jdbc:postgresql://localhost/db1";
+        user = "postgres";
+        password = "Giomartagio1";
+    }
 
     public Connection connect() {    
         Connection conn = null;
@@ -49,9 +52,14 @@ public class HelloWorld {
     
         return conn;
     }
+}
 
+
+
+
+public class HelloWorld {
     public static void main (String [] args){
-        HelloWorld c = new HelloWorld();
+        PostgreSQL_connection c = new PostgreSQL_connection();
         c.connect();
         Anagrafica p1 = new Anagrafica(1, "Giovanni", "Di Martino");
         
